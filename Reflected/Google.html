@@ -1,13 +1,7 @@
-<html><head><script src="Google_files/analytics.js" type="text/javascript"></script>
-<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app105.us.archive.org';v.server_ms=1226;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="Google_files/ait-client-rewrite.js" charset="utf-8"></script>
-<script type="text/javascript">
-WB_wombat_Init("https://web.archive.org/web/", "20010614030135", "www.google.com:80");
-</script>
 <script type="text/javascript" src="Google_files/wbhack.js" charset="utf-8"></script>
 <script type="text/javascript">
 __wbhack.init('https://web.archive.org/web');
 </script>
-<script type="text/javascript" src="Google_files/playback.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="Google_files/banner-styles.css">
 <link rel="stylesheet" type="text/css" href="Google_files/iconochive.css">
 <!-- End Wayback Rewrite JS Include -->
@@ -37,13 +31,10 @@ body {
 
 <div id="wm-ipp-base" style="display: block; direction: ltr;" lang="en">
 </div>
-<script type="text/javascript">
-__wm.bt(625,27,25,2,"web","google.html","20010614030135",1996,"/_static/",['css/banner-styles.css','css/iconochive.css']);
-</script><div class="wb-autocomplete-suggestions "></div>
 <!-- END WAYBACK TOOLBAR INSERT --><center><img src="Google_files/title_homepage4.gif" alt="Google" width="305" height="115"><br><br>
 
   <!-- [RJ] Legit search function -->
-<form action="Google.html" method="get" name="f"><table cellspacing="0" cellpadding="0"><tbody><tr valign="baseline" align="center"><td width="75">&nbsp;</td><td nowrap="nowrap"><font size="-1" face="arial,sans-serif">Download 1,346,966,000 viruses onto your PC!</font></td><td></td></tr><tr valign="middle" align="center"><td width="75">&nbsp;</td>
+<form action="" method="GET" name="f"><table cellspacing="0" cellpadding="0"><tbody><tr valign="baseline" align="center"><td width="75">&nbsp;</td><td nowrap="nowrap"><font size="-1" face="arial,sans-serif">Download 1,346,966,000 viruses onto your PC!</font></td><td></td></tr><tr valign="middle" align="center"><td width="75">&nbsp;</td>
   
   <td align="center">
     <input type="text" framewidth="4" name="q" size="55" maxlength="256"><br>
@@ -54,19 +45,21 @@ __wm.bt(625,27,25,2,"web","google.html","20010614030135",1996,"/_static/",['css/
     <a href="Google.html"> <font color="#006600"><b>Google Web Results (click to reset)</b></font></a>
       <br> <font color="#006600"><i>
         
-      <!-- This is the div where search 'results' are put -->
-        <div id="outputplace">hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b></div>
+      <script>
+        // THIS IS THE MAIN BIT
+        // Makes a new document node with the 
+        let url = new URL(window.location.href);
+        let urlsearchparam = url.searchParams.get('q');
+        if (urlsearchparam !== null)
+          document.write("Your search term was: " + urlsearchparam + ".<br><br>It didn't return any results because this isn't actually Google LOL"); // this is vulnerable
+        else
+          document.write("hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b>");
+      </script>
+        <div id="outputplace"></div>
       
       </i></font> 
     
-    <script>
-      // THIS IS THE SCRIPT WHICH PUTS URL PARAMS INTO THE HTML DIV BELOW
-      let url = new URL(window.location.href);
-      let urlsearchparam = url.searchParams.get('q');
-      if (urlsearchparam !== null)
-        document.getElementById("outputplace").innerHTML = "Your search term was: " + urlsearchparam + ".<br><br>It didn't return any results because this isn't actually Google LOL";
-      else ;
-    </script>
+    
 
     </font><br><br><br>
 <br><br><br><font size="-1"><a href="https://www.youtube.com/watch?v=doZ-Wmgrkfs">Cool&nbsp;Jobs</a> - <a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">Add&nbsp;Petya&nbsp;to&nbsp;Your&nbsp;PC</a> - <a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">Drink&nbsp;bleach&nbsp;today!</a> - <b><a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">All&nbsp;about&nbsp;foxes&nbsp;(they&apos;re&nbsp;heckin&apos;&nbsp;cool)</a></b></font>
