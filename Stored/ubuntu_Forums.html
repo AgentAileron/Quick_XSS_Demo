@@ -52,6 +52,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	};
 	var AJAXBASEURL = "https://ubuntuforums.org/";
 // -->
+
+
+// -- [RJ] Added code to process url params from previous reply submission, and reload page
+
+// TODO
+
 </script>
 <script type="text/javascript" src="https://ubuntuforums.org/clientscript/vbulletin-core.js?v=422"></script>
 
@@ -560,35 +566,17 @@ Any views and suggestions please - thanks - Dev, Suffolk, England
 				<img style="display:none" id="progress_4851081" src="images/ubuntu-VB4/misc/progress.gif" alt="" />
 				
 				
-<!-- added advance reply -->
-                    
-                        <a class='quickreply' href="newreply.php?p=4851081&amp;noquote=1" rel="nofollow"><img id="replyimg_4851081" src="clear.gif" alt="Advanced reply" /> Adv Reply</a>
-                        <span class="seperator">&nbsp;</span>
-                    
-<!-- end added advance reply -->
-<!-- the next id was qrwq_4851081 -->
-				
-				
+<!-- [RJ] added reply field -->
+<form action="" method="GET" name="f">      
+	Username:<input type="text" framewidth="4" name="u" size="60" required="true" maxlength="256"><br><br>
+	Reply:<input type="text" framewidth="10" name="u" size="60" required="true" maxlength="16384"><br><br>
+	<input name="btnR" type="submit" value="Submit a new reply">
+</form>                    
+<!-- end added reply field -->
+
 			</span>
 			<span class="postlinking">
-				
-					
-				
-				
 
-				 
-				
-
-					
-
-					
-					 
-
-					
-					
-					
-					
-					
 			</span>
 		</div>
 	</div>
@@ -604,6 +592,23 @@ Any views and suggestions please - thanks - Dev, Suffolk, England
 	
 
 </div>
+
+<script>
+	// [RJ] read all existing files from server *.txt file and load them onto the page <-- extremely insecure lolol
+	// Also functional programming!
+	fetch('127.0.0.1:8000/Stored/replies.html')
+		.then(
+			function(resp){
+				if (resp.status === 200){
+					resp.text().then(
+						function(data){
+							document.write(data);
+						}
+					)
+				}
+			}
+		)
+</script>
 
 <div id="below_postlist" class="noinlinemod below_postlist">
 	
@@ -1701,16 +1706,6 @@ Any views and suggestions please - thanks - Dev, Suffolk, England
 		
 		<li><a href="showthread.php?t=777013#top" onclick="document.location.hash='top'; return false;">Top</a></li>
 	</ul>
-	
-	
-	
-	
-	<script type="text/javascript">
-	<!--
-		// Main vBulletin Javascript Initialization
-		vBulletin_init();
-	//-->
-	</script>
         
 </div>
 </div> <!-- closing div for body_wrapper -->
