@@ -9,10 +9,11 @@ __wbhack.init('https://web.archive.org/web');
 body {font-family: arial,sans-serif;}
 </style>
 <script>
-function setfocus() { document.f.q.focus(); }
+function setfocus() {}
 // -->
 </script>
-</head><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><body onload="setfocus();" vlink="551a8b" text="#000000" link="#0000cc" bgcolor="#ffffff" alink="#ff0000"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script src="Google_files/jquery-3.5.0.min.js"></script>
+</head></script><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><body onload="setfocus();" vlink="551a8b" text="#000000" link="#0000cc" bgcolor="#ffffff" alink="#ff0000"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
 
 <style type="text/css">
 body {
@@ -34,36 +35,34 @@ body {
 <!-- END WAYBACK TOOLBAR INSERT --><center><img src="Google_files/title_homepage4.gif" alt="Google" width="305" height="115"><br><br>
 
   <!-- [RJ] Legit search function -->
-<form action="" method="GET" name="f"><table cellspacing="0" cellpadding="0"><tbody><tr valign="baseline" align="center"><td width="75">&nbsp;</td><td nowrap="nowrap"><font size="-1" face="arial,sans-serif">Download 1,346,966,000 viruses onto your PC!</font></td><td></td></tr><tr valign="middle" align="center"><td width="75">&nbsp;</td>
-  
+<form name="f"><table cellspacing="0" cellpadding="0"><tbody><tr valign="baseline" align="center"><td width="75">&nbsp;</td><td nowrap="nowrap"><font size="-1" face="arial,sans-serif">Download 1,346,966,000 viruses onto your PC!</font></td><td></td></tr><tr valign="middle" align="center"><td width="75">&nbsp;</td>
+
   <td align="center">
-    <input type="text" framewidth="4" name="q" size="55" maxlength="256"><br>
-    <input name="btnG" type="submit" value="Legit Search"><input name="btnI" type="submit" value="Die Instantly">
+    <input name="searchInput" type="text" framewidth="4" name="q" size="55" maxlength="256"><br>
+    <input name="btnG" type="button" onClick="location.href='#sdf'" value="Legit Search">  <!-- These are now buttons, they don't submit the form -->
+    <input name="btnI" type="button" value="Die Instantly">
   </td>
 
   <td valign="top" nowrap="nowrap" align="left"><font size="-2" face="arial,sans-serif">&nbsp;<a href="http://niceme.me">FIT2093&nbsp;Memes</a><br>&nbsp;<a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">Preferences</a></font></td></tr></tbody></table></form> <br><font size="-1">
     <a href="Google.html"> <font color="#006600"><b>Google Web Results (click to reset)</b></font></a>
       <br> <font color="#006600"><i>
         
-      <script>
-        // THIS IS THE MAIN BIT
-        // Makes a new document node with the unclean url param for search and puts it in 
-        let url = new URL(window.location.href);
-        let urlsearchparam = url.searchParams.get('q');
-        if (urlsearchparam !== null)
-          document.write("Your search term was: " + urlsearchparam + ".<br><br>It didn't return any results because this isn't actually Google LOL"); // this is vulnerable
-        else
-          document.write("hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b>");
-      </script>
-        <div id="outputplace"></div>
+        <div id="outputplace">hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b></div>
       
-      </i></font> 
-    
-    
+      </i></font>  
 
     </font><br><br><br>
 <br><br><br><font size="-1"><a href="https://www.youtube.com/watch?v=doZ-Wmgrkfs">Cool&nbsp;Jobs</a> - <a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">Add&nbsp;Petya&nbsp;to&nbsp;Your&nbsp;PC</a> - <a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">Drink&nbsp;bleach&nbsp;today!</a> - <b><a href="https://www.youtube.com/watch?v=jyCmnvBbm8Q">All&nbsp;about&nbsp;foxes&nbsp;(they&apos;re&nbsp;heckin&apos;&nbsp;cool)</a></b></font>
 <p><font size="-2">©2001 Google</font></p></center>
+
+<script>
+  // THIS IS THE MAIN BIT
+  $(document).on('click', '#btnG', function(){
+    console.log("asdf");
+    let searchTerm = $('#searchInput').val();
+    $('#outputplace').html("+searchTerm+");
+  })
+</script>   
 
 </body></html>
 <!--
