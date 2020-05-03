@@ -38,8 +38,8 @@ body {
 <form name="f"><table cellspacing="0" cellpadding="0"><tbody><tr valign="baseline" align="center"><td width="75">&nbsp;</td><td nowrap="nowrap"><font size="-1" face="arial,sans-serif">Download 1,346,966,000 viruses onto your PC!</font></td><td></td></tr><tr valign="middle" align="center"><td width="75">&nbsp;</td>
 
   <td align="center">
-    <input name="searchInput" type="text" framewidth="4" name="q" size="55" maxlength="256"><br>
-    <input name="btnG" type="button" onClick="location.href='#sdf'" value="Legit Search">  <!-- These are now buttons, they don't submit the form -->
+    <input id="searchInput" type="text" framewidth="4" name="q" size="55" maxlength="256"><br>
+    <input name="btnG" type="button" onClick="updateSearchOut();" value="Legit Search">  <!-- These are now buttons, they don't submit the form -->
     <input name="btnI" type="button" value="Die Instantly">
   </td>
 
@@ -57,11 +57,19 @@ body {
 
 <script>
   // THIS IS THE MAIN BIT
-  $(document).on('click', '#btnG', function(){
-    console.log("asdf");
-    let searchTerm = $('#searchInput').val();
-    $('#outputplace').html("+searchTerm+");
-  })
+  function updateSearchOut(){
+    let searchTerm = document.getElementById("searchInput").value;
+    eval("document.getElementById(\"outputplace\").innerHTML = \"Your search term was: "+searchTerm+".<br><br>It didn't return any results because this isn't actually Google LOL\"");
+    location.href="#"+searchTerm;
+  }
+  function chkUpdateSearchOut(e){
+    if (e.keyCode == '13'){
+      e.preventDefault();
+      updateSearchOut();
+    }
+
+  }
+  document.querySelector('form').onkeypress = chkUpdateSearchOut;
 </script>   
 
 </body></html>
