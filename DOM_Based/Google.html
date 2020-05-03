@@ -1,8 +1,5 @@
 <!-- REFLECTED XSS DEMO -->
 <script type="text/javascript" src="Google_files/wbhack.js" charset="utf-8"></script>
-<script type="text/javascript">
-__wbhack.init('https://web.archive.org/web');
-</script>
 <link rel="stylesheet" type="text/css" href="Google_files/banner-styles.css">
 <link rel="stylesheet" type="text/css" href="Google_files/iconochive.css">
 <!-- End Wayback Rewrite JS Include -->
@@ -62,18 +59,26 @@ body {
   // Function to update div with contents of search box, also updates URL fragment
   function updateSearchOut(){
     let searchTerm = document.getElementById("searchInput").value;
-    eval("document.getElementById(\"outputplace\").innerHTML = \"Your search term was: "+searchTerm+".<br><br>It didn't return any results because this isn't actually Google LOL\"");
+    eval("document.getElementById(\"outputplace\").innerHTML = \"Your search term was: "+searchTerm+".<br><br>It didn't return any results because this isn't actually Google LOL\"");  // OwO vulnerable
     location.href="#"+searchTerm;
   }
 
   // Hacky event handler function to prevent form submission on enter keypress
   function chkUpdateSearchOut(e){
-    if (e.keyCode == '13'){
+    if (e.keyCode == '13'){ // only trigger on enter keypress
       e.preventDefault();
       updateSearchOut();
     }
-
   }
+
+  // Handler for processing page loads where a url fragment id is present
+  $(document).ready( function(){
+    if (location.hash !== ""){
+      $("#SearchInput").text = location.hash.substring(1);
+      updateSearchOut();
+    }
+  });
+
   document.querySelector('form').onkeypress = chkUpdateSearchOut; // Event handler for enter keypresses
 </script>   
 
