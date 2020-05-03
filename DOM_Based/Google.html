@@ -1,3 +1,4 @@
+<!-- REFLECTED XSS DEMO -->
 <script type="text/javascript" src="Google_files/wbhack.js" charset="utf-8"></script>
 <script type="text/javascript">
 __wbhack.init('https://web.archive.org/web');
@@ -56,12 +57,16 @@ body {
 <p><font size="-2">©2001 Google</font></p></center>
 
 <script>
-  // THIS IS THE MAIN BIT
+  // THIS IS THE MAIN BIT - all done with URL fragments, no GET requests or server interaction after initial page load
+  
+  // Function to update div with contents of search box, also updates URL fragment
   function updateSearchOut(){
     let searchTerm = document.getElementById("searchInput").value;
     eval("document.getElementById(\"outputplace\").innerHTML = \"Your search term was: "+searchTerm+".<br><br>It didn't return any results because this isn't actually Google LOL\"");
     location.href="#"+searchTerm;
   }
+
+  // Hacky event handler function to prevent form submission on enter keypress
   function chkUpdateSearchOut(e){
     if (e.keyCode == '13'){
       e.preventDefault();
@@ -69,7 +74,7 @@ body {
     }
 
   }
-  document.querySelector('form').onkeypress = chkUpdateSearchOut;
+  document.querySelector('form').onkeypress = chkUpdateSearchOut; // Event handler for enter keypresses
 </script>   
 
 </body></html>

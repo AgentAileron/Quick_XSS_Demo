@@ -1,3 +1,4 @@
+<!-- REFLECTED XSS DEMO -->
 <script type="text/javascript" src="Google_files/wbhack.js" charset="utf-8"></script>
 <script type="text/javascript">
 __wbhack.init('https://web.archive.org/web');
@@ -48,12 +49,14 @@ body {
       <script>
         // THIS IS THE MAIN BIT
         // Makes a new document node with the unclean url param for search and puts it in 
+        // Note that technically this is still DOM-based since the DOM is modified after initial page load in the document.write()
+        // Assume that this function occurs on server before serving the HTML page to client - is done during pageload here for simplicity in demo creation
         let url = new URL(window.location.href);
         let urlsearchparam = url.searchParams.get('q');
         if (urlsearchparam !== null)
           document.write("Your search term was: " + urlsearchparam + ".<br><br>It didn't return any results because this isn't actually Google LOL"); // this is vulnerable
         else
-          document.write("hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b>");
+          document.write("hey b0ss pls gibe HD thx<br><br><b>Enter a search term to begin!</b>"); // Here's where the term is added to the DOM by HTML modification, pretend that this happens serverside
       </script>
         <div id="outputplace"></div>
       
